@@ -58,7 +58,7 @@ resource "aws_autoscaling_group" "CCFS" {
   health_check_type = "ELB"
  
 
-  min_size = 2
+  min_size = 0
   max_size = 10
 
   tag {
