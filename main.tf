@@ -58,9 +58,9 @@ resource "aws_autoscaling_group" "CCFS" {
   health_check_type = "ELB"
  
 
-  min_size         = 0
+  min_size         = 0 # Ensure no instances are running
   max_size         = 10
-  desired_capacity = 0
+  desired_capacity = 0  # Force no instances to be running
 
   tag {
     key                 = "Name"
