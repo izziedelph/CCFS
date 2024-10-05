@@ -278,3 +278,19 @@ output "port" {
   value       = aws_db_instance.CCFS-db.port
   description = "The port the database is listening on"
 }
+
+
+
+#These outputs adress, alb_dns_name, dynamodb_table_name, port and s3_bucket_arn are stored in terraform state for the database in s3 bucket path
+
+
+
+data "terraform_remote_state" "ccfs-db" {
+  backend = "s3"
+
+  config = {
+    bucket = "ccfs-state-bucket"   
+    key    = "global/s3/terraform.tfstate"  
+    region = "us-east-1"
+  }
+}
